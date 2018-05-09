@@ -6,26 +6,24 @@
   You can refresh the page at any time to re-run all the tests.
 */
 
-////////// PROBLEM 1 //////////
+// //////// PROBLEM 1 //////////
 
 // Do not edit the code below.
-var carDetails = {
-  color: 'red',
-  make: 'toyota',
-  model: 'tacoma',
-  year: 1994
-}
+const carDetails = {
+	color: 'red',
+	make: 'toyota',
+	model: 'tacoma',
+	year: 1994
+};
 // Do not edit the code above.
 
 /*
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-//Code Here
-
-
-
-////////// PROBLEM 2 //////////
+// Code Here
+const { color, make, model, year } = carDetails;
+// //////// PROBLEM 2 //////////
 
 /*
   In the function below named greeting, it is receiving an object as a parameter. 
@@ -33,17 +31,15 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
-  //Code Here
-  
-  // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
-  // Do not edit the code above.
+function greeting({ firstName, lastName, title }) {
+	// Code Here
+
+	// Do not edit the code below.
+	return `Hello, ${title} ${firstName} ${lastName}!`;
+	// Do not edit the code above.
 }
 
-
-
-////////// PROBLEM 3 //////////
+// //////// PROBLEM 3 //////////
 
 /*
   Write a function called totalPopulation that will take in an object.
@@ -53,11 +49,11 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
-
-
-
-////////// PROBLEM 4 //////////
+// Code Here
+function totalPopulation({ utah, california, texas, arizona }) {
+	return utah + california + texas + arizona;
+}
+// //////// PROBLEM 4 //////////
 
 /*
   Write a function called ingredients that will take in an object. 
@@ -67,11 +63,11 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
-
-
-
-////////// PROBLEM 5 //////////
+// Code Here
+function ingredients({ carb, fat, protein }) {
+	return [carb, fat, protein];
+}
+// //////// PROBLEM 5 //////////
 
 /*
   Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration.
@@ -85,11 +81,11 @@ function greeting( obj ) {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
-
-
-
-////////// PROBLEM 6 //////////
+// Code Here
+function largeNumbers({ first, second, third }) {
+	return Math.min(first, second, third);
+}
+// //////// PROBLEM 6 //////////
 
 /*
   Write a function called numberGroups that will take a destructured object as it's parameter.
@@ -97,6 +93,11 @@ function greeting( obj ) {
   Find the longest array and return that array.
 */
 
-//Code Here
+// Code Here
 
-
+function numberGroups({ a, b, c }) {
+	console.log(a, b, c);
+	if (a.length > b.length && a.length > c.length) return a;
+	else if (b.length > a.length && b.length > c.length) return b;
+	return c;
+}

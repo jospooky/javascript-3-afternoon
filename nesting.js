@@ -6,40 +6,40 @@
   You can refresh the page at any time to re-run all the tests.
 */
 
-////////// PROBLEM 1 //////////
+// //////// PROBLEM 1 //////////
 
 // Do not edit the code below.
-var employees = [
-  {
-    "firstName": "Von",
-    "lastName": "Budibent",
-    "email": "vbudibent0@163.com",
-    "department": "Sales"
-  },
-  {
-    "firstName": "Catherina",
-    "lastName": "Swalowe",
-    "email": "cswalowe1@example.com",
-    "department": "Engineering"
-  },
-  {
-    "firstName": "Theo",
-    "lastName": "Trill",
-    "email": "ttrill2@sina.com.cn",
-    "department": "Services"
-  },
-  {
-    "firstName": "Elsy",
-    "lastName": "McCrorie",
-    "email": "emccrorie3@netscape.com",
-    "department": "Legal"
-  },
-  {
-    "firstName": "Lorie",
-    "lastName": "Handsheart",
-    "email": "lhandsheart4@fotki.com",
-    "department": "Research and Development"
-  }
+const employees = [
+	{
+		firstName: 'Von',
+		lastName: 'Budibent',
+		email: 'vbudibent0@163.com',
+		department: 'Sales'
+	},
+	{
+		firstName: 'Catherina',
+		lastName: 'Swalowe',
+		email: 'cswalowe1@example.com',
+		department: 'Engineering'
+	},
+	{
+		firstName: 'Theo',
+		lastName: 'Trill',
+		email: 'ttrill2@sina.com.cn',
+		department: 'Services'
+	},
+	{
+		firstName: 'Elsy',
+		lastName: 'McCrorie',
+		email: 'emccrorie3@netscape.com',
+		department: 'Legal'
+	},
+	{
+		firstName: 'Lorie',
+		lastName: 'Handsheart',
+		email: 'lhandsheart4@fotki.com',
+		department: 'Research and Development'
+	}
 ];
 // Do not edit the code above.
 
@@ -50,14 +50,23 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
-
-
-
-////////// PROBLEM 2 //////////
+// Code Here
+function employeeUpdater() {
+	employees.forEach((user, index, employeeArray) => {
+		if (user.firstName === 'Theo') {
+			delete employeeArray[index];
+		}
+		if (user.firstName === 'Lorie') {
+			user.department = 'HR';
+		}
+		return user;
+	});
+	return employees;
+}
+// //////// PROBLEM 2 //////////
 
 // Do not edit the code below.
-var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
+const workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 // Do not edit the code above.
 
 /*
@@ -68,26 +77,39 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
-
-
-
-////////// PROBLEM 3 //////////
+// Code Here
+function removeDuplicates(arr) {
+	const used = [];
+	for (i = 0; i <= arr.length - 1; i++) {
+		let exist = false;
+		for (let j = 0; j <= used.length - 1; j++) {
+			if (arr[i] === used[j]) {
+				exist = true;
+				break;
+			}
+		}
+		if (!exist) {
+			used.push(arr[i]);
+		}
+	}
+	return used;
+}
+// //////// PROBLEM 3 //////////
 
 // Do not edit the code below.
-var cat = {
-  name: 'Fluffy',
-  catFriends: [
-    {
-      name: 'Grumpy',
-      activities: ['be grumpy', 'eat food']
-    }, 
-    {
-      name: 'Lazy Bones',
-      activities: ['sleep', 'pre-sleep naps']
-    }
-  ]
-}
+const cat = {
+	name: 'Fluffy',
+	catFriends: [
+		{
+			name: 'Grumpy',
+			activities: ['be grumpy', 'eat food']
+		},
+		{
+			name: 'Lazy Bones',
+			activities: ['sleep', 'pre-sleep naps']
+		}
+	]
+};
 // Do not edit the code above.
 
 /*
@@ -96,37 +118,35 @@ var cat = {
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+// Code Here
+const grumpyActivity = cat.catFriends[0].activities[1];
+const fluffy2ndFriend = cat.catFriends[1].name;
 
-
-
-////////// PROBLEM 4 //////////
+// //////// PROBLEM 4 //////////
 
 // Do not edit the code below.
-var myCar = {
-  make: 'Toyota',
-  model: 'Corolla',
-  year: 1992,
-  accidents: [
-    {
-      date: '3/15/93',
-      damage: '$5,000',
-      atFaultForAccident: true
-    },
-    {
-      date: '7/4/98',
-      damage: '$2,200',
-      atFaultForAccident: true
-    },
-    {
-      date: '6/22/99',
-      damage: '$7,900',
-      atFaultForAccident: true
-    }
-  ]
-}
+const myCar = {
+	make: 'Toyota',
+	model: 'Corolla',
+	year: 1992,
+	accidents: [
+		{
+			date: '3/15/93',
+			damage: '$5,000',
+			atFaultForAccident: true
+		},
+		{
+			date: '7/4/98',
+			damage: '$2,200',
+			atFaultForAccident: true
+		},
+		{
+			date: '6/22/99',
+			damage: '$7,900',
+			atFaultForAccident: true
+		}
+	]
+};
 // Do not edit the code above.
 
 /*
@@ -138,14 +158,18 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+// Code Here
+function recordCleaner() {
+	return myCar.accidents.map(accident => {
+		accident.atFaultForAccident = false;
 
-
-
-////////// PROBLEM 5 //////////
+		return accident;
+	});
+}
+// //////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+const numsArr = [[1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 // Do not edit the code above.
 
 /*
@@ -157,6 +181,9 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
-
-
+// Code Here
+function looper() {
+	return numsArr.map(numBlock =>
+		numBlock.map(num => (num % 2 == 0 ? 'even' : 'odd'))
+	);
+}
