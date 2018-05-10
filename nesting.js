@@ -92,6 +92,7 @@ function removeDuplicates(arr) {
 			used.push(arr[i]);
 		}
 	}
+	console.log(used);
 	return used;
 }
 // //////// PROBLEM 3 //////////
@@ -162,7 +163,7 @@ const myCar = {
 function recordCleaner() {
 	return myCar.accidents.map(accident => {
 		accident.atFaultForAccident = false;
-
+		console.log(accident);
 		return accident;
 	});
 }
@@ -184,6 +185,7 @@ const numsArr = [[1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 // Code Here
 function looper() {
 	return numsArr.map(numBlock =>
-		numBlock.map(num => (num % 2 == 0 ? 'even' : 'odd'))
+		numBlock.map(num => (num % 2 === 0 ? 'even' : 'odd'))
 	);
 }
+console.log(looper);
